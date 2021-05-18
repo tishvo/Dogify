@@ -26,7 +26,7 @@ class Dog extends React.Component {
         if (this.props.item.photos.length === 0) {
             let photo = this.props.item.photos; //empty array
             photo[0] = {};
-            photo[0].medium = './placeholder.jpg';
+            photo[0].medium = './library/placeholder.jpg';
         }
         return (
             <div>

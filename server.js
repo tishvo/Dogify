@@ -46,6 +46,24 @@ app.get("/dogs/:zipcode", (req, res) => {
     })
 });
 
+//get more dogs
+app.get("/moredogs/:page", (req, res) => {
+    let page = req.params.page;
+    let url = `https://api.petfinder.com/v2/animals?type=Dog&limit=50&page=` + page;
+    
+    axios.get(url, {
+        headers: {
+            'Authorization': 'Bearer ' + process.env.PETFINDER_API
+        }
+    })
+    .then((response) => {
+        res.status(200).send(CircularJSON.stringify(response.data));
+    })
+    .catch((err) => {
+        console.log('err: ', err)
+    })
+});
+
 
 
 app.listen(port, () => {

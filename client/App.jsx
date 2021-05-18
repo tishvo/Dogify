@@ -9,11 +9,13 @@ class App extends React.Component {
         super(props);
         this.state = {
             dogs: [],
-            page: 1,
+            page: 2,
             zipcode: ''
         }
         this.onZipcodeChange = this.onZipcodeChange.bind(this);
         this.searchZipcode = this.searchZipcode.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
+        this.moreDogsClick = this.moreDogsClick.bind(this);
     }
 
     componentDidMount() {
@@ -66,11 +68,34 @@ class App extends React.Component {
 
     }
 
+    moreDogsClick() {
+        axios.get(`/moredogs/${this.state.page}`)
+        .then((response) => {
+            //console.log(response.data.animals)
+            var all = response.data.animals;
+            var filter = [];
+            for (var i = 0; i < all.length; i++) {
+                var current = all[i];
+                if (current.photos.length !== 0) {
+                    filter.push(current);
+                }
+            }
+            this.setState({
+                dogs: filter,
+                page: this.state.page + 1
+            })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
     render() {
         return (
             <div>
             <div>Name of Application Goes Here</div>
             <div>Search by zipcode: <input type="text" value={this.state.zipcode} onChange={this.onZipcodeChange}/><button onClick={this.searchZipcode}>Search</button></div>
+            <div><button onClick={this.moreDogsClick}>See more doggos</button></div>
             <div><Dogs dogs={this.state.dogs}/></div>
             </div>
         );
