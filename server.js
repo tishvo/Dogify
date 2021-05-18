@@ -28,6 +28,24 @@ app.get("/dogs", (req, res) => {
     })
 });
 
+//get dogs in a single zip code
+app.get("/dogs/:zipcode", (req, res) => {
+    let zipcode = req.params.zipcode;
+    let url = `https://api.petfinder.com/v2/animals?type=Dog&location=` + zipcode;
+    
+    axios.get(url, {
+        headers: {
+            'Authorization': 'Bearer ' + process.env.PETFINDER_API
+        }
+    })
+    .then((response) => {
+        res.status(200).send(CircularJSON.stringify(response.data));
+    })
+    .catch((err) => {
+        console.log('err: ', err)
+    })
+});
+
 
 
 app.listen(port, () => {
