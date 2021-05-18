@@ -1,3 +1,9 @@
+body {
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
 .dogContainer {
     display: flex;
     flex-wrap: wrap;
@@ -30,5 +36,37 @@
     text-align: center;
 }
 
+.landing {
+    height: 800px;
+    background-image: url(./library/golden_retriever.jpeg);
+    background-size: cover;
+    margin: auto;
+}
 
+.mainDogs {
+    background-color: rgb(57, 216, 216);
+}
 
+.title {
+    font-size: 100px;
+    margin: 15px;
+    padding: 15px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.subtitle {
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
+    margin-left: 5px;
+}
+
+.quote {
+    font-size: 50px;
+    margin-top: 175px;
+    margin-left: 20px;
+}
+
+.author {
+    margin-left: 35px;
+}

@@ -93,10 +93,15 @@ class App extends React.Component {
     render() {
         return (
             <div>
-            <div>Name of Application Goes Here</div>
-            <div>Search by zipcode: <input type="text" value={this.state.zipcode} onChange={this.onZipcodeChange}/><button onClick={this.searchZipcode}>Search</button></div>
-            <div><button onClick={this.moreDogsClick}>See more doggos</button></div>
-            <div><Dogs dogs={this.state.dogs}/></div>
+            <div className="landing">
+                <p className="title">Dogify<span className="subtitle">Dog adoption</span></p>
+                <div className="quote">"Dogs are our link to paradise."</div>
+                <div className="subtitle author">- Milan Kundera</div>
+                
+                </div>
+            <div className="mainDogs">Search by zipcode: <input type="text" value={this.state.zipcode} onChange={this.onZipcodeChange}/><button onClick={this.searchZipcode}>Search</button></div>
+            <div className="mainDogs"><button onClick={this.moreDogsClick}>See more doggos</button></div>
+            <div className="mainDogs"><Dogs dogs={this.state.dogs}/></div>
             </div>
         );
     }
