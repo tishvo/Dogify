@@ -19,7 +19,7 @@ class Dogs extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="dogContainer">
                 {this.props.dogs.map((item, index) => 
 
                 <Dog key={index} item={item}/>

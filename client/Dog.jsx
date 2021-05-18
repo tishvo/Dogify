@@ -29,10 +29,10 @@ class Dog extends React.Component {
             photo[0].medium = './library/placeholder.jpg';
         }
         return (
-            <div>
-                <img src={this.props.item.photos[0].medium} onClick={this.onPictureClick}/>
-                <div>{this.props.item.name}</div>
-                <div>{this.props.item.description}</div>
+            <div className="dog">
+                <img className="image" src={this.props.item.photos[0].medium} onClick={this.onPictureClick}/>
+                <div className="name">{this.props.item.name}</div>
+                <div className="description">{this.props.item.description}</div>
             </div>
         );
     }
