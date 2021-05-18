@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //get all dogs (first 25)
 app.get("/dogs", (req, res) => {
-    let url = `https://api.petfinder.com/v2/animals?type=Dog`;
+    let url = `https://api.petfinder.com/v2/animals?type=Dog&limit=50`;
     
     axios.get(url, {
         headers: {

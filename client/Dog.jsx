@@ -7,11 +7,16 @@ class Dog extends React.Component {
         this.state = {
 
         }
+        this.onPictureClick = this.onPictureClick.bind(this);
     }
 
     componentDidMount() {
-        console.log(this.props.item.photos)
         
+    }
+
+    onPictureClick() {
+        let url = this.props.item.url;
+        window.open(url);
     }
 
     render() {
@@ -25,7 +30,7 @@ class Dog extends React.Component {
         }
         return (
             <div>
-                <img src={this.props.item.photos[0].medium}/>
+                <img src={this.props.item.photos[0].medium} onClick={this.onPictureClick}/>
                 <div>{this.props.item.name}</div>
                 <div>{this.props.item.description}</div>
             </div>
