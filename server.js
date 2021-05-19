@@ -4,6 +4,7 @@ const axios = require('axios');
 require('dotenv').config();
 const bodyparser = require('body-parser');
 const CircularJSON = require('circular-json');
+const db = require('./database');
 const port = 8000;
 
 const app = express();
@@ -64,6 +65,11 @@ app.get("/moredogs/:page", (req, res) => {
     })
 });
 
+//handle user signup 
+
+
+
+//handle user login
 
 
 app.listen(port, () => {
