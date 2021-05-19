@@ -4,6 +4,15 @@ body {
     color: white;
 }
 
+.more {
+    padding-left: 1px;
+    padding-top: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+
 .dogContainer {
     display: flex;
     flex-wrap: wrap;
@@ -34,6 +43,9 @@ body {
 
 .name {
     text-align: center;
+    font-size: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .landing {
@@ -45,6 +57,7 @@ body {
 
 .mainDogs {
     background-color: rgb(57, 216, 216);
+    padding-left: 18px;
 }
 
 .title {
@@ -69,4 +82,32 @@ body {
 
 .author {
     margin-left: 35px;
+}
+
+.sectionTwo {
+    height: 475px;
+    margin: auto;
+    background-color: white;
+
+}
+
+.sectionTwo_main {
+    font-size: 50px;
+    text-align: center;
+    color: black;
+    padding-top: 100px;
+}
+
+.sectionTwo_sub {
+    font-size: 25px;
+    text-align: center;
+    color: black;
+}
+
+.meet {
+    font-size: 50px;
+    text-align: center;
+    padding: 5px;
+    padding-top: 15px;
+    background-color: rgb(57, 216, 216);
 }
