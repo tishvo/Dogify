@@ -111,3 +111,42 @@ body {
     padding-top: 15px;
     background-color: rgb(57, 216, 216);
 }
+
+.sign-up, .login {
+    float: right;
+    margin: 10px;
+    padding: 5px;
+    font-size: 17px;
+}
+
+.modal1, .modal2 {
+    position: relative;
+    align-content: center;
+    width: 300px;
+    height: 400px;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    margin: auto;
+    background-color: white;
+    color: black;
+}
+
+.modal_header {
+    text-align: center;
+    font-size: 25px;
+    padding-top: 15px;
+}
+
+.modal_button {
+    margin: 5px;
+}
+
+.modal_button_div {
+    text-align: center;
+}
+
+.modal_field {
+    padding: 5px;
+}
