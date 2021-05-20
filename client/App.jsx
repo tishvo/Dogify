@@ -99,6 +99,8 @@ class App extends React.Component {
                     filter.push(current);
                 }
             }
+            console.log(response);
+            console.log(filter);
             this.setState({
                 dogs: filter,
                 page: this.state.page + 1
