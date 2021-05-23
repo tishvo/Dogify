@@ -20,6 +20,7 @@ class App extends React.Component {
             login_username: '',
             login_password: ''
         }
+        
         this.onZipcodeChange = this.onZipcodeChange.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
         this.moreDogsClick = this.moreDogsClick.bind(this);
