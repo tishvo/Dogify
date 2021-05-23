@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const axios = require('axios');
+const fetch = require('node-fetch');
 require('dotenv').config();
 const bodyparser = require('body-parser');
 const CircularJSON = require('circular-json');
@@ -16,19 +17,36 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //get all dogs (first 25)
 app.get("/dogs", (req, res) => {
-    let url = `https://api.petfinder.com/v2/animals?type=Dog&limit=50`;
-    
-    axios.get(url, {
+    return fetch('https://api.petfinder.com/v2/oauth2/token', {
+        method: 'POST',
+        body: 'grant_type=client_credentials&client_id=' + process.env.key + '&client_secret=' + process.env.secret,
         headers: {
-            'Authorization': 'Bearer ' + process.env.PETFINDER_API
+            'Content-Type': 'application/x-www-form-urlencoded'
         }
     })
     .then((response) => {
-        res.status(200).send(CircularJSON.stringify(response.data));
+        return response.json();
     })
-    .catch((err) => {
-        console.log('err: ', err)
+    .then((data) => {
+        process.env.PETFINDER_API = data.access_token;
     })
+    .then(() => {
+        let url = `https://api.petfinder.com/v2/animals?type=Dog&limit=50`;
+    
+        axios.get(url, {
+            headers: {
+                'Authorization': 'Bearer ' + process.env.PETFINDER_API
+            }
+        })
+        .then((response) => {
+            res.status(200).send(CircularJSON.stringify(response.data));
+        })
+        .catch((err) => {
+            console.log('err: ', err)
+        })
+    })
+
+    
 });
 
 //get dogs in a single zip code

@@ -4,14 +4,7 @@ import ReactDOM from 'react-dom';
 class Dog extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-        }
         this.onPictureClick = this.onPictureClick.bind(this);
-    }
-
-    componentDidMount() {
-        
     }
 
     onPictureClick() {
@@ -24,7 +17,7 @@ class Dog extends React.Component {
             this.props.item.description = 'This doggo does not have a description but we can assume they are bestest and should be adopted';
         }
         if (this.props.item.photos.length === 0) {
-            let photo = this.props.item.photos; //empty array
+            let photo = this.props.item.photos; 
             photo[0] = {};
             photo[0].medium = './library/placeholder.jpg';
         }
