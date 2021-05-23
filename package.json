@@ -18,6 +18,7 @@
     "@babel/preset-react": "^7.13.13",
     "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
+    "bcrypt": "^5.0.1",
     "circular-json": "^0.5.9",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",

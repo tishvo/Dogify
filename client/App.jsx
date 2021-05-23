@@ -116,7 +116,6 @@ class App extends React.Component {
             let zipcode = this.state.zipcode;
             axios.get(`/dogs/${zipcode}`)
             .then((response) => {
-                //console.log(response.data.animals)
                 var all = response.data.animals;
                 var filter = [];
                 for (var i = 0; i < all.length; i++) {
@@ -150,7 +149,10 @@ class App extends React.Component {
             user: this.state.signup_username,
             pass: this.state.signup_password
         }
-        console.log(login)
+        axios.post('/signup', login)
+        .then((res) => {
+            window.alert(res.data);
+        })
     }
 
     handleOpenModal2() {
@@ -167,7 +169,10 @@ class App extends React.Component {
             user: this.state.login_username,
             pass: this.state.login_password
         }
-        console.log(login)
+        axios.post('/login', login)
+        .then((res) => {
+            window.alert(res.data);
+        })
     }
 
     render() {
@@ -182,7 +187,7 @@ class App extends React.Component {
                     >
                         <p className="modal_header">Sign Up</p>
                         <div className="modal_field">Username: <input value={this.state.signup_username} onChange={this.onSignupUsernameChange}/></div>
-                        <div className="modal_field">Password: <input value={this.state.signup_password} onChange={this.onSignupPasswordChange}/></div>
+                        <div className="modal_field">Password: <input type="password" name="password" value={this.state.signup_password} onChange={this.onSignupPasswordChange}/></div>
                         <div className="modal_button_div"><button className="modal_button" onClick={this.handleCloseModal1}>Sign Up</button></div>
                     </ReactModal>
                 <ReactModal
@@ -192,7 +197,7 @@ class App extends React.Component {
                     >
                         <p className="modal_header">Login</p>
                         <div className="modal_field">Username: <input value={this.state.login_username} onChange={this.onLoginUsernameChange}/></div>
-                        <div className="modal_field">Password: <input value={this.state.login_password} onChange={this.onLoginPasswordChange}/></div>
+                        <div className="modal_field">Password: <input type="password" name="password" value={this.state.login_password} onChange={this.onLoginPasswordChange}/></div>
                         <div className="modal_button_div"><button className="modal_button" onClick={this.handleCloseModal2}>Login</button></div>
                     </ReactModal>
                 <p className="title">Dogify<span className="subtitle">Dog adoption</span></p>
